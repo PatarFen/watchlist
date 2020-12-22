@@ -4,6 +4,13 @@ from watchlist import app, db
 from watchlist.models import Movie
 
 @app.cli.command()
+#@click.option('--drop', is_flag=True, help='Create after drop.')
+def drop():
+    """Drop all data."""
+    db.drop_all()
+    click.echo('Database clean.')
+
+@app.cli.command()
 def forge():
 
     db.create_all()
