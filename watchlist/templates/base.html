@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    {% block head %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ name }}'s Watchlist</title>
-    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.png') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css">
-    {% endblock %}
+    <!--<link rel="stylesheet" href="{{ url_for('static', filename='lib/bootstrap/bootstrap.min.css') }}" type="text/css">-->
+
+    <script src="{{ url_for('static', filename='lib/bootstrap/bootstrap.min.js') }}"></script>
 </head>
 <body>
     {% for message in get_flashed_messages() %}
@@ -22,7 +23,9 @@
             <li><a href="{{ url_for('index') }}">Home</a></li>
         </ul>
     </nav>
+
     {% block content %}{% endblock %}
+    
     <footer>
         <small>&copy; 2018 <a href="http://helloflask.com/tutorial">HelloFlask</a></small>
     </footer>

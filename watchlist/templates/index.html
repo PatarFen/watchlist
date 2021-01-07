@@ -21,6 +21,23 @@
     
     {% endfor %}  
 </ul>
+
+<h3>Comment:</h3>
+<form method = "post">
+    Name <input type="text" name = "name" autocomplete="off" required ><br>
+    comment content <br>
+    <textarea name="content" rows="4" cols="50" required></textarea><br>
+    <input class="btn" type="submit" name="Submit" value="Submit">
+</form>
+
+<ul class="movie-list">
+    {% for comment in comments %}
+    <li>
+        {{ comment.name}} said: {{ comment.content }}
+    </li>
+    {% endfor %}
+</ul>
+
 <img alt="Walking Totoro" class="totoro" src="{{ url_for('static', filename='images/totoro.gif') }}">
 {% endblock %}
         
